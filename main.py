@@ -9,10 +9,10 @@ def guess_number(borne_minimale, borne_maximale):
         attempts += 1
 
         if guess < random_number:
-            print("Too low! Try again.")
+            print("Mauvais choix, le nombre est trop petit.")
             borne_minimale = guess + 1
         elif guess > random_number:
-            print("Too high! Try again.")
+            print("Mauvais choix, le nombre est trop grand.")
             borne_maximale = guess - 1
         else:
             print("Bravo! Vous avez deviné le nombre {} correctement lors de {} essai(s)".format
