@@ -1,5 +1,7 @@
 #import random number
 import random
+
+#definir le nombre à deveir
 def guess_number(borne_minimale, borne_maximale):
     random_number = random.randint (borne_minimale, borne_maximale)
     attempts = 0
@@ -18,7 +20,7 @@ def guess_number(borne_minimale, borne_maximale):
             print("Bravo! Vous avez deviné le nombre {} correctement lors de {} essai(s)".format
                 (random_number, attempts))
             break
-#
+#Rejouer
     play_again = input("Voulez-vous faire une autre partie? (oui/non): ").lower()
     if play_again=="oui":
         return True
