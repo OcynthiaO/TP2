@@ -1,33 +1,34 @@
 #import random number
 import random
-def guess_number(lower_limit, upper_limit):
-    random_number = random.randint (lower_limit, upper_limit)
+def guess_number(borne_minimale, borne_maximale):
+    random_number = random.randint (borne_minimale, borne_maximale)
     attempts = 0
 
     while True:
-        guess= int(input('Deviner le nombre etre {} et {}:'.format(lower_limit, upper_limit)))
+        guess= int(input('Deviner un nombre etre {} et {}:'.format(borne_minimale, borne_maximale)))
         attempts += 1
 
         if guess < random_number:
             print("Too low! Try again.")
-            lower_limit = guess + 1
+            borne_minimale = guess + 1
         elif guess > random_number:
             print("Too high! Try again.")
-            upper_limit = guess - 1
+            borne_maximale = guess - 1
         else:
-            print("Bravo! Vous avez deviné le nombre {} correctement lors de {} essai".format
+            print("Bravo! Vous avez deviné le nombre {} correctement lors de {} essai(s)".format
                 (random_number, attempts))
             break
 #
-    play_again = input("Voulez-vous rejouer? (oui/non): ").lower()
+    play_again = input("Voulez-vous faire une autre partie? (oui/non): ").lower()
     if play_again=="oui":
         return True
     return False
 
 while True:
-    lower_limit = int(input("Enter the lower limit of the range: "))
-    upper_limit = int(input("Enter the upper limit of the range: "))
+    borne_minimale = int(input("Enter la borne minimale que vous voulez: "))
+    borne_maximale = int(input("Enter la borne maximale of vous voulez: "))
 
-    play_again = guess_number (lower_limit, upper_limit)
+    play_again = guess_number(borne_minimale, borne_maximale)
     if not play_again:
+        print('Merci et au revoir...')
         break
